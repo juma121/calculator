@@ -18,12 +18,20 @@ class Calculator{
     }
 
     delete(){
-       
+        this.firstoutput = this.firstoutput.substring(0, this.firstoutput.length -1);
+        document.getElementById("output-first").innerHTML = this.firstoutput;
+
     }
 
     concateString(x) {
         
-        this.firstoutput += x;
+        
+        if(x=="." && this.firstoutput.includes(".")){
+            return;
+        }else{
+            this.firstoutput += x;
+            calculator.updateDisplay();
+        } 
         //this.secondoutput = this.firstoutput;
         
     }
@@ -34,27 +42,93 @@ class Calculator{
 
     add(){
         
-        if(this.secondoutput.includes("+")==false){
-            this.firstoutput += "+";
-        this.secondoutput = this.firstoutput;
-        this.firstoutput = "";
-        document.getElementById("output-second").innerHTML = this.secondoutput;
-        document.getElementById("output-first").innerHTML = this.firstoutput;
-        }
+        if(this.firstoutput.length>0 || this.secondoutput.length>0){
+
         
+        
+            if(this.secondoutput.includes("+")==false){
+        
+                if(this.firstoutput=="" && this.secondoutput!=""){
+                    this.secondoutput += "+";
+                    document.getElementById("output-second").innerHTML = this.secondoutput;
+                }else{
+                    this.firstoutput += "+";
+            
+                    this.secondoutput = this.firstoutput;
+                    this.firstoutput = "";
+                    document.getElementById("output-second").innerHTML = this.secondoutput;
+                    document.getElementById("output-first").innerHTML = this.firstoutput;
+                }
+        
+            }
+        }
+            
 
     }
     
     subtract(){
-      
+
+        if(this.firstoutput.length>0 || this.secondoutput.length>0){
+            if(this.secondoutput.includes("-")==false){
+            
+                if(this.firstoutput=="" && this.secondoutput!=""){
+                    this.secondoutput += "-";
+                    document.getElementById("output-second").innerHTML = this.secondoutput;
+                }else{
+                    this.firstoutput += "-";
+            
+                    this.secondoutput = this.firstoutput;
+                    this.firstoutput = "";
+                    document.getElementById("output-second").innerHTML = this.secondoutput;
+                    document.getElementById("output-first").innerHTML = this.firstoutput;
+                }
+        
+            }
+        }
     }
     
     multiply(){
+
+        if(this.firstoutput.length>0 || this.secondoutput.length>0){
+
+            if(this.secondoutput.includes("*")==false){
+            
+                if(this.firstoutput=="" && this.secondoutput!=""){
+                    this.secondoutput += "*";
+                    document.getElementById("output-second").innerHTML = this.secondoutput;
+                }else{
+                    this.firstoutput += "*";
+            
+                    this.secondoutput = this.firstoutput;
+                    this.firstoutput = "";
+                    document.getElementById("output-second").innerHTML = this.secondoutput;
+                    document.getElementById("output-first").innerHTML = this.firstoutput;
+                }
+        
+            }
+        }
         
     }
     
     divide(){
-    
+
+        if(this.firstoutput.length>0 || this.secondoutput.length>0){
+            if(this.secondoutput.includes("/")==false){
+            
+                if(this.firstoutput=="" && this.secondoutput!=""){
+                    this.secondoutput += "/";
+                    document.getElementById("output-second").innerHTML = this.secondoutput;
+                }else{
+                    this.firstoutput += "/";
+            
+                    this.secondoutput = this.firstoutput;
+                    this.firstoutput = "";
+                    document.getElementById("output-second").innerHTML = this.secondoutput;
+                    document.getElementById("output-first").innerHTML = this.firstoutput;
+                }
+        
+            }
+        }
     }
 
     equals(){
@@ -63,14 +137,60 @@ class Calculator{
             let removedOperatorStr = this.secondoutput.substring(0, this.secondoutput.length -1)
             let secondvar = parseInt(removedOperatorStr);
             let result = firstvar + secondvar;
+            this.secondoutput = result.toString();
             document.getElementById("output-second").innerHTML = result.toString();
             this.firstoutput = "";
-            this.secondoutput = Integer.toString(result);
+            
             document.getElementById("output-first").innerHTML = this.firstoutput;
-
+        
 
             
-        }
+        }else if(this.secondoutput.includes("-") && this.firstoutput>=1){
+            let firstvar = parseInt(document.getElementById("output-first").innerHTML);
+            
+            let removedOperatorStr = this.secondoutput.substring(0, this.secondoutput.length -1)
+            let secondvar = parseInt(removedOperatorStr);
+            
+            let result = secondvar - firstvar;
+            
+            this.secondoutput = result.toString();
+            
+            document.getElementById("output-second").innerHTML = result.toString();
+            this.firstoutput = "";
+            
+            document.getElementById("output-first").innerHTML = this.firstoutput;
+        }else if(this.secondoutput.includes("*") && this.firstoutput>=1){
+            
+                let firstvar = parseInt(document.getElementById("output-first").innerHTML);
+                
+                let removedOperatorStr = this.secondoutput.substring(0, this.secondoutput.length -1)
+                let secondvar = parseInt(removedOperatorStr);
+                
+                let result = secondvar * firstvar;
+                
+                this.secondoutput = result.toString();
+                
+                document.getElementById("output-second").innerHTML = result.toString();
+                this.firstoutput = "";
+                
+                document.getElementById("output-first").innerHTML = this.firstoutput;
+
+        }else if(this.secondoutput.includes("/") && this.firstoutput>=1){
+            
+            let firstvar = parseInt(document.getElementById("output-first").innerHTML);
+            
+            let removedOperatorStr = this.secondoutput.substring(0, this.secondoutput.length -1)
+            let secondvar = parseInt(removedOperatorStr);
+            
+            let result = secondvar / firstvar;
+            
+            this.secondoutput = result.toString();
+            
+            document.getElementById("output-second").innerHTML = result.toString();
+            this.firstoutput = "";
+            
+            document.getElementById("output-first").innerHTML = this.firstoutput;
+        }  
     }
 }
 
@@ -86,15 +206,17 @@ const sevenbutton = document.getElementById("seven");
 const eightbutton = document.getElementById("eight");
 const ninebutton = document.getElementById("nine");
 const zerobutton = document.getElementById("zero");
+const pointbutton = document.getElementById("point");
 
 
 const plusbutton = document.getElementById("plus");
 const minusbutton = document.getElementById("minus");
 const timesbutton = document.getElementById("times");
-const devidebutton = document.getElementById("devide");
+const dividebutton = document.getElementById("divide");
 
 const acbutton = document.getElementById("ac");
 const equalsbutton = document.getElementById("equals");
+const deletebutton = document.getElementById("del");
 
 
 const calculator = new Calculator("", "", "");
@@ -155,13 +277,34 @@ plusbutton.addEventListener("click", () =>{
     calculator.add();
 })
 
+minusbutton.addEventListener("click", () => {
+    calculator.subtract();
+})
+
+timesbutton.addEventListener("click", () => {
+    calculator.multiply();
+})
+
+dividebutton.addEventListener("click", () => {
+    calculator.divide();
+})
+
 acbutton.addEventListener("click",() => {
     calculator.allclear();
+})
+
+deletebutton.addEventListener("click", () => {
+    calculator.delete();
 })
 
 equalsbutton.addEventListener("click", () => {
     calculator.equals();
 })
+
+pointbutton.addEventListener("click", () => {
+    calculator
+})
+
 
 
 
