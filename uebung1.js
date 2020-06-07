@@ -18,7 +18,7 @@ class Calculator{
     }
 
     delete(){
-
+        var z;
     }
 
     concateString(x) {
