@@ -46,7 +46,7 @@ class Calculator{
     }
     
     subtract(){
-        var y;
+       var g;
     }
     
     multiply(){
