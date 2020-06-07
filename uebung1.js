@@ -43,10 +43,8 @@ class Calculator{
     add(){
         
         if(this.firstoutput.length>0 || this.secondoutput.length>0){
-
         
-        
-            if(this.secondoutput.includes("+")==false){
+            if(this.secondoutput.includes("+" || "-" || "*" || "÷")==false){
         
                 if(this.firstoutput=="" && this.secondoutput!=""){
                     this.secondoutput += "+";
@@ -69,8 +67,9 @@ class Calculator{
     subtract(){
 
         if(this.firstoutput.length>0 || this.secondoutput.length>0){
-            if(this.secondoutput.includes("-")==false){
-            
+        
+            if(this.secondoutput.includes("+" || "-" || "*" || "÷")==false){
+        
                 if(this.firstoutput=="" && this.secondoutput!=""){
                     this.secondoutput += "-";
                     document.getElementById("output-second").innerHTML = this.secondoutput;
@@ -91,13 +90,13 @@ class Calculator{
 
         if(this.firstoutput.length>0 || this.secondoutput.length>0){
 
-            if(this.secondoutput.includes("*")==false){
+            if(this.secondoutput.includes("+" || "-" || "x" || "÷")==false){
             
                 if(this.firstoutput=="" && this.secondoutput!=""){
-                    this.secondoutput += "*";
+                    this.secondoutput += "x";
                     document.getElementById("output-second").innerHTML = this.secondoutput;
                 }else{
-                    this.firstoutput += "*";
+                    this.firstoutput += "x";
             
                     this.secondoutput = this.firstoutput;
                     this.firstoutput = "";
@@ -113,13 +112,13 @@ class Calculator{
     divide(){
 
         if(this.firstoutput.length>0 || this.secondoutput.length>0){
-            if(this.secondoutput.includes("/")==false){
+            if(this.secondoutput.includes("+" || "-" || "x" || "÷")==false){
             
                 if(this.firstoutput=="" && this.secondoutput!=""){
-                    this.secondoutput += "/";
+                    this.secondoutput += "÷";
                     document.getElementById("output-second").innerHTML = this.secondoutput;
                 }else{
-                    this.firstoutput += "/";
+                    this.firstoutput += "÷";
             
                     this.secondoutput = this.firstoutput;
                     this.firstoutput = "";
@@ -133,9 +132,9 @@ class Calculator{
 
     equals(){
         if(this.secondoutput.includes("+") && this.firstoutput>=1){
-            let firstvar = parseInt(document.getElementById("output-first").innerHTML);
-            let removedOperatorStr = this.secondoutput.substring(0, this.secondoutput.length -1)
-            let secondvar = parseInt(removedOperatorStr);
+            let firstvar = parseFloat(document.getElementById("output-first").innerHTML);
+            let removedOperatorStr = this.secondoutput.substring(0, this.secondoutput.length -1);
+            let secondvar = parseFloat(removedOperatorStr);
             let result = firstvar + secondvar;
             this.secondoutput = result.toString();
             document.getElementById("output-second").innerHTML = result.toString();
@@ -146,10 +145,10 @@ class Calculator{
 
             
         }else if(this.secondoutput.includes("-") && this.firstoutput>=1){
-            let firstvar = parseInt(document.getElementById("output-first").innerHTML);
+            let firstvar = parseFloat(document.getElementById("output-first").innerHTML);
             
-            let removedOperatorStr = this.secondoutput.substring(0, this.secondoutput.length -1)
-            let secondvar = parseInt(removedOperatorStr);
+            let removedOperatorStr = this.secondoutput.substring(0, this.secondoutput.length -1);
+            let secondvar = parseFloat(removedOperatorStr);
             
             let result = secondvar - firstvar;
             
@@ -159,12 +158,12 @@ class Calculator{
             this.firstoutput = "";
             
             document.getElementById("output-first").innerHTML = this.firstoutput;
-        }else if(this.secondoutput.includes("*") && this.firstoutput>=1){
+        }else if(this.secondoutput.includes("x") && this.firstoutput>=1){
             
-                let firstvar = parseInt(document.getElementById("output-first").innerHTML);
+                let firstvar = parseFloat(document.getElementById("output-first").innerHTML);
                 
                 let removedOperatorStr = this.secondoutput.substring(0, this.secondoutput.length -1)
-                let secondvar = parseInt(removedOperatorStr);
+                let secondvar = parseFloat(removedOperatorStr);
                 
                 let result = secondvar * firstvar;
                 
@@ -175,12 +174,12 @@ class Calculator{
                 
                 document.getElementById("output-first").innerHTML = this.firstoutput;
 
-        }else if(this.secondoutput.includes("/") && this.firstoutput>=1){
+        }else if(this.secondoutput.includes("÷") && this.firstoutput>=1){
             
-            let firstvar = parseInt(document.getElementById("output-first").innerHTML);
+            let firstvar = parseFloat(document.getElementById("output-first").innerHTML);
             
             let removedOperatorStr = this.secondoutput.substring(0, this.secondoutput.length -1)
-            let secondvar = parseInt(removedOperatorStr);
+            let secondvar = parseFloat(removedOperatorStr);
             
             let result = secondvar / firstvar;
             
@@ -225,52 +224,52 @@ const calculator = new Calculator("", "", "");
 
 onebutton.addEventListener('click', () => {
     calculator.concateString(onebutton.innerText);
-    calculator.updateDisplay();
+    
 })
 
 twobutton.addEventListener('click', () => {
     calculator.concateString(twobutton.innerText);
-    calculator.updateDisplay();
+    
 })
 
 threebutton.addEventListener("click", () => {
     calculator.concateString(threebutton.innerText);
-    calculator.updateDisplay();
+    
 })
 
 fourbutton.addEventListener("click", () => {
     calculator.concateString(fourbutton.innerText);
-    calculator.updateDisplay();
+    
 })
 
 fivebutton.addEventListener("click", () => {
     calculator.concateString(fivebutton.innerText);
-    calculator.updateDisplay();
+    
 })
 
 sixbutton.addEventListener("click", () => {
     calculator.concateString(sixbutton.innerText);
-    calculator.updateDisplay();
+    
 })
 
 sevenbutton.addEventListener("click", () => {
     calculator.concateString(sevenbutton.innerText);
-    calculator.updateDisplay();
+    
 })
 
 eightbutton.addEventListener("click", () => {
     calculator.concateString(eightbutton.innerText);
-    calculator.updateDisplay();
+    
 })
 
 ninebutton.addEventListener("click", () => {
     calculator.concateString(ninebutton.innerText);
-    calculator.updateDisplay();
+    
 })
 
 zerobutton.addEventListener("click", () => {
     calculator.concateString(zerobutton.innerText);
-    calculator.updateDisplay();
+    
 })
 
 plusbutton.addEventListener("click", () =>{
@@ -302,7 +301,7 @@ equalsbutton.addEventListener("click", () => {
 })
 
 pointbutton.addEventListener("click", () => {
-    calculator
+    calculator.concateString(pointbutton.innerHTML);
 })
 
 
