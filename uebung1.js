@@ -18,7 +18,7 @@ class Calculator{
     }
 
     delete(){
-
+       
     }
 
     concateString(x) {
