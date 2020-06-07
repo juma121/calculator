@@ -50,7 +50,7 @@ class Calculator{
     }
     
     multiply(){
-        
+        var g;
     }
     
     divide(){
