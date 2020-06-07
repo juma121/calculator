@@ -46,11 +46,11 @@ class Calculator{
     }
     
     subtract(){
-       var g;
+      
     }
     
     multiply(){
-        var g;
+        
     }
     
     divide(){
