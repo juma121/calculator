@@ -44,8 +44,8 @@ class Calculator{
         
         if(this.firstoutput.length>0 || this.secondoutput.length>0){
         
-            if(this.secondoutput.includes("+" || "-" || "*" || "÷")==false){
-        
+            if(!this.secondoutput.includes("+") && !this.secondoutput.includes("-") && !this.secondoutput.includes("x") && !this.secondoutput.includes("÷")){
+
                 if(this.firstoutput=="" && this.secondoutput!=""){
                     this.secondoutput += "+";
                     document.getElementById("output-second").innerHTML = this.secondoutput;
@@ -68,7 +68,7 @@ class Calculator{
 
         if(this.firstoutput.length>0 || this.secondoutput.length>0){
         
-            if(this.secondoutput.includes("+" || "-" || "*" || "÷")==false){
+            if(!this.secondoutput.includes("+") && !this.secondoutput.includes("-") && !this.secondoutput.includes("x") && !this.secondoutput.includes("÷")){
         
                 if(this.firstoutput=="" && this.secondoutput!=""){
                     this.secondoutput += "-";
@@ -90,7 +90,7 @@ class Calculator{
 
         if(this.firstoutput.length>0 || this.secondoutput.length>0){
 
-            if(this.secondoutput.includes("+" || "-" || "x" || "÷")==false){
+            if(!this.secondoutput.includes("+") && !this.secondoutput.includes("-") && !this.secondoutput.includes("x") && !this.secondoutput.includes("÷")){
             
                 if(this.firstoutput=="" && this.secondoutput!=""){
                     this.secondoutput += "x";
@@ -112,7 +112,7 @@ class Calculator{
     divide(){
 
         if(this.firstoutput.length>0 || this.secondoutput.length>0){
-            if(this.secondoutput.includes("+" || "-" || "x" || "÷")==false){
+            if(!this.secondoutput.includes("+") && !this.secondoutput.includes("-") && !this.secondoutput.includes("x") && !this.secondoutput.includes("÷")){
             
                 if(this.firstoutput=="" && this.secondoutput!=""){
                     this.secondoutput += "÷";
