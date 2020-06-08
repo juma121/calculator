@@ -2,16 +2,16 @@
 
 
 class Calculator{
-    constructor(firstoutput, secondoutput, currentnumber){
+    constructor(firstoutput, secondoutput){
         this.firstoutput = firstoutput;
         this.secondoutput = secondoutput;
-        this.currentnumber = currentnumber;
+        
     }
 
     allclear(){
         this.firstoutput = "";
         this.secondoutput = "";
-        this.currentnumber = "";
+        
         document.getElementById("output-second").innerHTML = this.secondoutput;
         document.getElementById("output-first").innerHTML = this.firstoutput;
 
@@ -218,7 +218,7 @@ const equalsbutton = document.getElementById("equals");
 const deletebutton = document.getElementById("del");
 
 
-const calculator = new Calculator("", "", "");
+const calculator = new Calculator("", "");
 
 
 
