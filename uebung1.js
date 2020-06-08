@@ -228,7 +228,7 @@ onebutton.addEventListener('click', () => {
     
 })
 
-body.addEventListener('keypress', (event) => {
+body.addEventListener('keydown', (event) => {
     
     if(parseInt(event.key)==event.key){
         calculator.concateString(event.key);
@@ -244,7 +244,11 @@ body.addEventListener('keypress', (event) => {
         calculator.concateString(".");
     }else if(event.key=="Enter"){
         calculator.equals();
+    }else if(event.key == "Backspace"){
+        calculator.delete();
     }})
+
+    
 
 twobutton.addEventListener('click', () => {
     calculator.concateString(twobutton.innerText);
