@@ -216,6 +216,7 @@ const dividebutton = document.getElementById("divide");
 const acbutton = document.getElementById("ac");
 const equalsbutton = document.getElementById("equals");
 const deletebutton = document.getElementById("del");
+const body = document.querySelector("body");
 
 
 const calculator = new Calculator("", "");
@@ -226,6 +227,24 @@ onebutton.addEventListener('click', () => {
     calculator.concateString(onebutton.innerText);
     
 })
+
+body.addEventListener('keypress', (event) => {
+    
+    if(parseInt(event.key)==event.key){
+        calculator.concateString(event.key);
+    }else if(event.key=="+"){
+        calculator.add();
+    }else if(event.key=="-"){
+        calculator.subtract();
+    }else if(event.key=="x" || event.key =="*"){
+        calculator.multiply();
+    }else if(event.key=="/"){
+        calculator.divide();
+    }else if(event.key== "."){
+        calculator.concateString(".");
+    }else if(event.key=="Enter"){
+        calculator.equals();
+    }})
 
 twobutton.addEventListener('click', () => {
     calculator.concateString(twobutton.innerText);
